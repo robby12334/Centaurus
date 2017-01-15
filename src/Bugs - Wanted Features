@@ -1,12 +1,19 @@
 Bugs
-	TextArea will not clear when there is only one weapon in it.
+
 
 
 Wanted Features
 	Skyrim Enchantments
-	Stat Roller
 	Enchantments
 		Armor, Ring, Amulet, Cloak, Helm, Boots, Gloves
 		Basic Enchantments: Additions to proficiencies, bonus to rolls, bonus to stats
 			Etc.
-		
+		Class Creator
+
+Update Log
+	1.0	
+		Creation
+		Now rolls weapons & weapon types
+	2.0
+		Conversion to java swing
+		now rolls stats

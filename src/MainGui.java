@@ -16,6 +16,9 @@ public class MainGui implements ActionListener{
 	private JTextArea displayStats;
 	private JButton statButton;
 	
+	private JButton enchantmentButton;
+	private JComboBox itemType;
+	
 	public MainGui(){
 	      JFrame frame = new JFrame("GM Helper");
 	      frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -82,6 +85,9 @@ public class MainGui implements ActionListener{
 	        statButton = new JButton("Click For 6 Stats");
 	        gc.gridx = 0;
 	        gc.gridy = 0;
+	        gc.weightx = 0;
+	        gc.weighty = 0;
+	        gc.gridwidth = 1;
 	        gc.anchor = GridBagConstraints.NORTHWEST;
 	        gc.insets = new Insets(2, 0, 0, 2);
 	        statButton.addActionListener(new ActionListener(){
@@ -90,7 +96,7 @@ public class MainGui implements ActionListener{
 					displayStats.setText("");
 				    ArrayList<Integer> statArray = StatRoller.statRoller();
 				    for(Integer str: statArray){
-				    	displayStats.append(str + "\n");
+				    	displayStats.append(str + " ");
 				    }
 					
 				}
@@ -103,14 +109,49 @@ public class MainGui implements ActionListener{
 	        gc.gridy = 1;
 	        gc.insets = new Insets(2, 0, 0, 2);
 	        gc.anchor = GridBagConstraints.NORTHWEST;
-	        gc.weightx = 1;
-	        gc.weighty = 1;
+	        gc.weightx = 0;
+	        gc.weighty = 2;
+	        gc.gridwidth = 1;
 	        statRoller.add(displayStats, gc);
+	        
+	        
+	        // Enchantment Creator
+	        JPanel enchantments = new JPanel();
+	        enchantments.setLayout(new GridBagLayout());
+	        gc = new GridBagConstraints();
+	        
+	        enchantmentButton = new JButton("Click for Enchantment");
+	        gc.gridx = 0;
+	        gc.gridy = 0;	        
+	        gc.weightx = 0;
+	        gc.weighty = 0;
+	        gc.gridwidth = 1;
+	        gc.anchor = GridBagConstraints.NORTHWEST;
+	        gc.insets = new Insets(2, 0, 0, 2);
+	        enchantmentButton.addActionListener(new ActionListener(){
+				public void actionPerformed(ActionEvent arg0) {
+				    System.out.println(itemType.getSelectedItem());
+				}
+				
+	        });
+	        enchantments.add(enchantmentButton);
+	        
+	        String[] items = {" ","Armor", "Ring", "Amulet", "Cloak", "Helm", "Boots", "Gloves"};
+	        itemType = new JComboBox(items);
+	        gc.gridx = 1;
+	        gc.gridy = 0;	        
+	        gc.weightx = 0;
+	        gc.weighty = 0;
+	        gc.gridwidth = 1;
+	        gc.anchor = GridBagConstraints.NORTHEAST;
+	        gc.insets = new Insets(2, 0, 0, 2);
+	        enchantments.add(itemType);
+	        
 	        
 	        mainPanel.setBorder(new EmptyBorder(10, 10, 10, 10));
 	        mainPanel.add(wepPanel, BorderLayout.WEST);
 	        mainPanel.add(statRoller, BorderLayout.CENTER);
-	        
+	        mainPanel.add(enchantments, BorderLayout.EAST);
 
 	        
 	        
