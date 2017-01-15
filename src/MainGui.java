@@ -55,8 +55,8 @@ public class MainGui extends Frame implements ActionListener, WindowListener{
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-	      int x = Integer.parseInt(tfCount.getText());
 	      displayWeapons.setText("");
+	      int x = Integer.parseInt(tfCount.getText());
 	      ArrayList<String> wepArray = RandomWeapon.randomWeapon(x);
 	      for(String str: wepArray){
 	    	  displayWeapons.append(str + "\n");

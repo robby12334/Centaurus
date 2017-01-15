@@ -8,7 +8,13 @@ public class RandomWeapon {
 
 	public static ArrayList<String> randomWeapon(int numWeap) {
 		ArrayList<String> list = new ArrayList<String>();
-		for (int i = 0; i < numWeap; i++) {
+		int num;
+		if (numWeap == -1){
+			num = number(1,20);
+		}else{
+			num = numWeap;
+		}
+		for (int i = 0; i < num; i++) {
 			int a;
 			int x = 1;
 			int y = 100;
