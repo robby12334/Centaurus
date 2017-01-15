@@ -22,7 +22,7 @@ public class MainGui implements ActionListener{
 	public MainGui(){
 	      JFrame frame = new JFrame("GM Helper");
 	      frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	      JPanel mainPanel = new JPanel(new BorderLayout());
+	      JTabbedPane  mainPanel = new JTabbedPane();
 	      
 	      // WEAPON PANEL
 	        JPanel wepPanel = new JPanel();
@@ -124,12 +124,28 @@ public class MainGui implements ActionListener{
 	        enchantments.setLayout(new GridBagLayout());
 	        gc = new GridBagConstraints();
 	        
+	        /*
+	        
+	        String[] items = {" ","Armor", "Ring", "Amulet", "Cloak", "Helm", "Boots", "Gloves"};
+	        itemType = new JComboBox(items);
+	        gc.gridx = 0;
+	        gc.gridy = 1;
+	        gc.insets = new Insets(2, 0, 0, 2);
+	        gc.anchor = GridBagConstraints.WEST;
+	        gc.weightx = 1;
+	        gc.weighty = 1;
+	        gc.gridwidth = 1;
+	        gc.gridheight = 1;
+	        enchantments.add(itemType);
+	        */
+	        
 	        enchantmentButton = new JButton("Click for Enchantment");
 	        gc.gridx = 0;
-	        gc.gridy = 0;	        
+	        gc.gridy = 0;
 	        gc.weightx = 0;
-	        gc.weighty = 0;
+	        gc.weighty = 1;
 	        gc.gridwidth = 1;
+	        gc.gridheight = 1;
 	        gc.anchor = GridBagConstraints.NORTHWEST;
 	        gc.insets = new Insets(2, 0, 0, 2);
 	        enchantmentButton.addActionListener(new ActionListener(){
@@ -138,24 +154,23 @@ public class MainGui implements ActionListener{
 				}
 				
 	        });
-	        enchantments.add(enchantmentButton);
+	        enchantments.add(enchantmentButton, gc);
 	        
 	        String[] items = {" ","Armor", "Ring", "Amulet", "Cloak", "Helm", "Boots", "Gloves"};
 	        itemType = new JComboBox(items);
 	        gc.gridx = 1;
-	        gc.gridy = 0;	        
-	        gc.weightx = 0;
+	        gc.gridy = 0;
+	        gc.insets = new Insets(2, 0, 0, 2);
+	        gc.anchor = GridBagConstraints.NORTHWEST;
+	        gc.weightx = 1;
 	        gc.weighty = 0;
 	        gc.gridwidth = 1;
-	        gc.anchor = GridBagConstraints.NORTHWEST;
-	        gc.insets = new Insets(2, 0, 0, 2);
-	        enchantments.add(itemType);
+	        enchantments.add(itemType, gc);
 	        
-	        
-	        mainPanel.setBorder(new EmptyBorder(10, 10, 10, 10));
-	        mainPanel.add(wepPanel, BorderLayout.WEST);
-	        mainPanel.add(statRoller, BorderLayout.CENTER);
-	        mainPanel.add(enchantments, BorderLayout.EAST);
+	       // mainPanel.setBorder(new EmptyBorder(10, 10, 10, 10));
+	        mainPanel.addTab("Wep Creator",wepPanel);
+	        mainPanel.addTab("Stat Roller / Character Create", statRoller);
+	        mainPanel.addTab("Enchantment Create",enchantments);
 
 	        
 	        
@@ -166,7 +181,7 @@ public class MainGui implements ActionListener{
 	      
 
 	      frame.pack();	      
-	      frame.setSize(1000, 500);
+	      frame.setSize(500, 500);
 	      frame.setVisible(true);   
 	}
 
