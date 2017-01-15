@@ -25,7 +25,6 @@ public class RandomWeapon {
 			String fullWeap = type.concat(" ").concat(weapon);
 			list.add(fullWeap);
 		}
-		System.out.println(list);
 		return list;
 	}
 

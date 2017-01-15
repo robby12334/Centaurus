@@ -7,23 +7,25 @@ public class MainGui extends Frame implements ActionListener, WindowListener{
 	private Label lblCount;    // Declare a Label component 
 	private TextField tfCount; // Declare a TextField component 
 	private Button btnCount;   // Declare a Button component
-	private int count = 0;     // Counter's value
+	 private TextArea displayWeapons; // Multi-line TextArea to taDisplay result
 	
 	public MainGui(){
 	      setLayout(new FlowLayout());
 	         // "super" Frame (a Container) sets its layout to FlowLayout, which arranges
 	         // the components from left-to-right, and flow to next row from top-to-bottom.
 	 
-	      lblCount = new Label("Counter");  // construct the Label component
+	      lblCount = new Label("Enter Number Of Weapons Desired (-1 for random)");  // construct the Label component
 	      add(lblCount);                    // "super" Frame adds Label
 	 
 	      tfCount = new TextField("0", 10); // construct the TextField component
-	      tfCount.setEditable(false);       // set to read-only
+	      tfCount.setEditable(true);       // set to read-only
 	      add(tfCount);                     // "super" Frame adds TextField
 	 
-	      btnCount = new Button("Count");   // construct the Button component
+	      btnCount = new Button("Generate Weapons");   // construct the Button component
 	      add(btnCount);                    // "super" Frame adds Button
-	 
+	      
+	      displayWeapons = new TextArea(20,40);
+	      add(displayWeapons);
 	      btnCount.addActionListener(this);
 	         // btnCount is the source object that fires ActionEvent when clicked.
 	         // The source add "this" instance as an ActionEvent listener, which provides
@@ -53,9 +55,12 @@ public class MainGui extends Frame implements ActionListener, WindowListener{
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-	      ++count; // increase the counter value
-	      // Display the counter value on the TextField tfCount
-	      tfCount.setText(count + ""); // convert int to String
+	      int x = Integer.parseInt(tfCount.getText());
+	      displayWeapons.setText("");
+	      ArrayList<String> wepArray = RandomWeapon.randomWeapon(x);
+	      for(String str: wepArray){
+	    	  displayWeapons.append(str + "\n");
+	      }
 	}
 
 	@Override
