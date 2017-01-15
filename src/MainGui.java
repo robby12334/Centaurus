@@ -150,13 +150,16 @@ public class MainGui implements ActionListener{
 	        gc.insets = new Insets(2, 0, 0, 2);
 	        enchantmentButton.addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent arg0) {
-				    System.out.println(itemType.getSelectedItem());
+					if((String) itemType.getSelectedItem() == " "){
+						return;
+					}
+				    EnchantmentCreator.getEnchantment((String) itemType.getSelectedItem());
 				}
 				
 	        });
 	        enchantments.add(enchantmentButton, gc);
 	        
-	        String[] items = {" ","Armor", "Ring", "Amulet", "Cloak", "Helm", "Boots", "Gloves"};
+	        String[] items = {" ","Armor", "Ring", "Amulet", "Cloak", "Helm", "Boots", "Gloves", "Weapon", "Shield", "Unique Item", "Legendary Item"};
 	        itemType = new JComboBox(items);
 	        gc.gridx = 1;
 	        gc.gridy = 0;
