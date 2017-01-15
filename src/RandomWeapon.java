@@ -31,6 +31,7 @@ public class RandomWeapon {
 			String fullWeap = type.concat(" ").concat(weapon);
 			list.add(fullWeap);
 		}
+		list.sort(String::compareToIgnoreCase);
 		return list;
 	}
 
