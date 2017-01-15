@@ -1,27 +1,35 @@
 import java.math.*;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class RandomWeapon {
 	public static void main(String[] args) {
-		randomWeapon(1);
+		randomWeapon(5);
 	}
 
-	public static void randomWeapon(int numWeap) {
-		int a;
-		int x = 1;
-		int y = 100;
-		int z = number(x, y);
+	public static ArrayList<String> randomWeapon(int numWeap) {
+		ArrayList<String> list = new ArrayList<String>();
+		for (int i = 0; i < numWeap; i++) {
+			int a;
+			int x = 1;
+			int y = 100;
+			int z = number(x, y);
 
-		if (z >= 80) {
-			a = 0; // 0 is a specialized weapon
-		} else {
-			a = 1; // 1 is a martial weapon
+			if (z >= 80) {
+				a = 0; // 0 is a specialized weapon
+			} else {
+				a = 1; // 1 is a martial weapon
+			}
+
+			String type = metal();
+			String weapon = weapon(a);
+			String fullWeap = type.concat(" ").concat(weapon);
+			list.add(fullWeap);
 		}
-		String type = metal();
-		String weapon = weapon(a);
-		System.out.println(numWeap + " " + type + " " + weapon + "(s)");
-
+		System.out.println(list);
+		return list;
 	}
 
 	public static int number(int min, int max) {
