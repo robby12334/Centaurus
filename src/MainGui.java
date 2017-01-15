@@ -68,6 +68,10 @@ public class MainGui implements ActionListener{
 	        
 	        
 	        displayWeapons = new JTextArea("Weapons will appear here");
+	        displayWeapons.setRows(21);
+	        displayWeapons.setColumns(25);
+	        JScrollPane sp1 = new JScrollPane(displayWeapons);
+	        sp1.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 	        gc.gridx = 0;
 	        gc.gridy = 1;
 	        gc.gridwidth = 2;
@@ -75,7 +79,7 @@ public class MainGui implements ActionListener{
 	        gc.anchor = GridBagConstraints.NORTHWEST;
 	        gc.weightx = 1;
 	        gc.weighty = 1;
-	        wepPanel.add(displayWeapons, gc);
+	        wepPanel.add(sp1, gc);
 
 	     // STAT ROLLER   
 	        JPanel statRoller = new JPanel();
@@ -143,7 +147,7 @@ public class MainGui implements ActionListener{
 	        gc.weightx = 0;
 	        gc.weighty = 0;
 	        gc.gridwidth = 1;
-	        gc.anchor = GridBagConstraints.NORTHEAST;
+	        gc.anchor = GridBagConstraints.NORTHWEST;
 	        gc.insets = new Insets(2, 0, 0, 2);
 	        enchantments.add(itemType);
 	        
