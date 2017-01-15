@@ -4,10 +4,10 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class RandomWeapon {
 	public static void main(String[] args) {
-		randomWeapon();
+		randomWeapon(1);
 	}
 
-	public static void randomWeapon() {
+	public static void randomWeapon(int numWeap) {
 		int a;
 		int x = 1;
 		int y = 100;
@@ -20,7 +20,7 @@ public class RandomWeapon {
 		}
 		String type = metal();
 		String weapon = weapon(a);
-		System.out.println(type + " " + weapon);
+		System.out.println(numWeap + " " + type + " " + weapon + "(s)");
 
 	}
 
