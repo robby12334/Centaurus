@@ -4,20 +4,139 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class RandomWeapon {
 	public static void main(String[] args) {
-		
+		int a;
+		String b = "";
 		Scanner input = new Scanner(System.in);
-		
-		System.out.print("Minimum Roll: ");
-		int x = input.nextInt();
-		
-		System.out.print("Maximum Roll: ");
-		int y = input.nextInt();
-		int z = number(x,y);
-		
-		System.out.println(z);
+		int x = 1;
+		int y = 100;
+		int z = number(x, y);
+
+		if (z >= 80) {
+			a = 0; // 0 is a specialized weapon
+		} else {
+			a = 1; // 1 is a martial weapon
+		}
+
+		if (a == 1) {
+			b = "You've received a Martial Weapon!";
+		} else if (a == 0) {
+			b = "You've received a Specialized Weapon!";
+		}
+		System.out.println(b);
+		String c = weapon(a);
+		System.out.println("It's a " + c);
+
 	}
-	public static int number(int min, int max){
-		int i = ThreadLocalRandom.current().nextInt(min, max+1);
+
+	public static int number(int min, int max) {
+		int i = ThreadLocalRandom.current().nextInt(min, max + 1);
 		return i;
+	}
+
+	public static String weapon(int type) {
+		String a = "";
+		if (type == 1) {
+			int x = number(1, 22); // there are 22 martial weapons
+			if (x == 1) {
+				a = "Shortsword";
+			} else if (x == 2) {
+				a = "Longsword";
+			} else if (x == 3) {
+				a = "Mace";
+			} else if (x == 4) {
+				a = "Maul";
+			} else if (x == 5) {
+				a = "Warhammer";
+			} else if (x == 6) {
+				a = "Sling";
+			} else if (x == 7) {
+				a = "Hunting Bow";
+			} else if (x == 8) {
+				a = "Shortbow";
+			} else if (x == 9) {
+				a = "Spear";
+			} else if (x == 10) {
+				a = "Quarterstaff";
+			} else if (x == 11) {
+				a = "Falx";
+			} else if (x == 12) {
+				a = "Pike";
+			} else if (x == 13) {
+				a = "Crossbow";
+			} else if (x == 14) {
+				a = "Greatsword";
+			} else if (x == 15) {
+				a = "Tower Shield";
+			} else if (x == 16) {
+				a = "Javelin";
+			} else if (x == 17) {
+				a = "Throwing Knife";
+			} else if (x == 18) {
+				a = "Dagger";
+			} else if (x == 19) {
+				a = "Hatchet";
+			} else if (x == 20) {
+				a = "Roundshield";
+			} else if (x == 21) {
+				a = "Axe";
+			} else if (x == 22) {
+				a = "Greataxe";
+			}
+		} else {
+			int x = number(1, 25);
+
+			if (x == 1) {
+				a = "Scimitar";
+			} else if (x == 2) {
+				a = "Halberd";
+			} else if (x == 3) {
+				a = "Nadziak";
+			} else if (x == 4) {
+				a = "Parmotvol";
+			} else if (x == 5) {
+				a = "Cho-ko-nu";
+			} else if (x == 6) {
+				a = "Lance";
+			} else if (x == 7) {
+				a = "Longbow";
+			} else if (x == 8) {
+				a = "Arbalest";
+			} else if (x == 9) {
+				a = "Net";
+			} else if (x == 10) {
+				a = "Whip";
+			} else if (x == 11) {
+				a = "Bolas";
+			} else if (x == 12) {
+				a = "Chakram";
+			} else if (x == 13) {
+				a = "Tiger Claw";
+			} else if (x == 14) {
+				a = "Naginata";
+			} else if (x == 15) {
+				a = "Katana";
+			} else if (x == 16) {
+				a = "No-Dachi";
+			} else if (x == 17) {
+				a = "Trident";
+			} else if (x == 18) {
+				a = "Rapier";
+			} else if (x == 19) {
+				a = "Tetsubo";
+			} else if (x == 20) {
+				a = "Flail";
+			} else if (x == 21) {
+				a = "Atlatl";
+			} else if (x == 22) {
+				a = "Buckler";
+			} else if (x == 23) {
+				a = "Quickfire Dart";
+			} else if (x == 24) {
+				a = "Hand Crossbow";
+			} else if (x == 25) {
+				a = "Katar";
+			}
+		}
+		return a;
 	}
 }
