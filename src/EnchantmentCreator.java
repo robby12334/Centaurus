@@ -2,7 +2,7 @@ public class EnchantmentCreator {
 
 	public static String getEnchantment(String type){
 		
-		System.out.println(type);
+		//System.out.println(type);
 		
 		int x = RandomWeapon.number(1, 1000);
 		if(type.equalsIgnoreCase("Unique Item")){
@@ -20,41 +20,70 @@ public class EnchantmentCreator {
 	}
 	
 	public static String getStatBoost(String type){
-		System.out.println("StatBoost");
+		//System.out.println("StatBoost");
 		int x = RandomWeapon.number(1, 100);
 		
 		String stat = getBasicEnchant(type);
-		System.out.println(stat);
+		
 		
 		String exploration;
+		String resistance;
+		String dmgType = getDamageType();
+		String FinalEnchant = "Failed Enchant";
 		
-		if (stat == "Exploration Proficiancy"){
-			exploration = getProficiancy(type);
-			System.out.println(exploration);
-		}
+		int level = 0; 
 		
 		if(x < 60){
 			//+1
-			System.out.println("+1");
+			//System.out.println("+1");
+			level = 1;
 			
 		}else if(x >=60 && x <90){
 			//+2
-			System.out.println("+2");
+			//System.out.println("+2");
+			level = 2;
 		}else{
 			//+3
-			System.out.println("+3");
+			//System.out.println("+3");
+			level = 3;
 		}
 		
-		return null;
+		if (stat == "Exploration Proficiancy"){
+			exploration = getProficiancy(type);
+			//System.out.println(exploration);
+			FinalEnchant = "+" + level + " to " + exploration;
+		}else if(stat == "Resistance"){
+			resistance = getResistance();
+			//System.out.println(resistance);
+			FinalEnchant = "+" + level + " to " + resistance + " resistance";
+		}else if(stat == "Elemental Damage"){
+			//System.out.println(dmgType);
+			FinalEnchant = "+" + level + "d4 of " +dmgType + " Damage";
+		}else if(stat == "Damage Cerverted to"){
+			//System.out.println(dmgType);
+			FinalEnchant = "Weapon damage converted to " + dmgType;
+		}else if(stat == "HP"){
+			FinalEnchant = "+" + level + "d4 of Maximum Health";
+		}else{
+			//System.out.println(stat);
+			FinalEnchant = "+" + level + " to " + stat;
+			
+		}
+		
+	
+		
+		
+		//System.out.println(FinalEnchant);
+		return FinalEnchant;
 	}
 	
 	public static String getUniqueEnchantment(String type){
-		System.out.println("UniqueEnchant");
-		return null;
+		//System.out.println("UniqueEnchant");
+		return "UniqueEnchant";
 	}
 	public static String getLegendaryEnchantment(String type){
-		System.out.println("LegendaryEnchant");
-		return null;
+		//System.out.println("LegendaryEnchant");
+		return "LegendaryEnchant";
 	}
 	private static String getBasicEnchant(String type){
 		//{"Armor", "Ring", "Amulet", "Cloak", "Helm", "Boots", "Gloves"};
@@ -299,4 +328,28 @@ public class EnchantmentCreator {
 		return null;
 	}
 
+	private static String getResistance(){
+		int x = RandomWeapon.number(1,3);
+		if(x == 1){
+			return "Pierce";
+		}else if(x == 2){
+			return "Impact";
+		}else if(x == 3){
+			return "Blade";
+		}
+		return "Fail Resistance";
+	}
+	private static String getDamageType(){
+		int x = RandomWeapon.number(1,4);
+		if(x == 1){
+			return "Arcane";
+		}else if(x == 2){
+			return "Electric";
+		}else if(x == 3){
+			return "Frost";
+		}else if(x == 4){
+			return "Fire";
+		}
+		return "Fail Damage Type";
+	}
 }
