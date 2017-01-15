@@ -34,40 +34,30 @@ public class EnchantmentCreator {
 		int level = 0; 
 		
 		if(x < 60){
-			//+1
-			//System.out.println("+1");
 			level = 1;
 			
 		}else if(x >=60 && x <90){
-			//+2
-			//System.out.println("+2");
 			level = 2;
 		}else{
-			//+3
-			//System.out.println("+3");
 			level = 3;
 		}
 		
 		if (stat == "Exploration Proficiancy"){
 			exploration = getProficiancy(type);
-			//System.out.println(exploration);
 			FinalEnchant = "+" + level + " to " + exploration;
 		}else if(stat == "Resistance"){
 			resistance = getResistance();
-			//System.out.println(resistance);
 			FinalEnchant = "+" + level + " to " + resistance + " resistance";
 		}else if(stat == "Elemental Damage"){
-			//System.out.println(dmgType);
 			FinalEnchant = "+" + level + "d4 of " +dmgType + " Damage";
 		}else if(stat == "Damage Cerverted to"){
-			//System.out.println(dmgType);
 			FinalEnchant = "Weapon damage converted to " + dmgType;
 		}else if(stat == "HP"){
 			FinalEnchant = "+" + level + "d4 of Maximum Health";
+		}else if(stat == "Life-Steal"){
+			FinalEnchant = "+" + level + "d4 of Life Steal Per Hit";
 		}else{
-			//System.out.println(stat);
 			FinalEnchant = "+" + level + " to " + stat;
-			
 		}
 		
 	

@@ -21,7 +21,7 @@ public class MainGui implements ActionListener{
 	private JTextArea displayEnchantment;
 	
 	public MainGui(){
-	      JFrame frame = new JFrame("GM Helper");
+	      JFrame frame = new JFrame("DM Helper");
 	      frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	      JTabbedPane  mainPanel = new JTabbedPane();
 	      
@@ -138,8 +138,8 @@ public class MainGui implements ActionListener{
 	        enchantmentButton = new JButton("Click for Enchantment");
 	        gc.gridx = 0;
 	        gc.gridy = 0;
-	        gc.weightx = 0;
-	        gc.weighty = 0;
+	        gc.weightx = 1;
+	        gc.weighty =0;
 	        gc.gridwidth = 1;
 	        gc.gridheight = 1;
 	        gc.anchor = GridBagConstraints.NORTHWEST;
@@ -162,7 +162,7 @@ public class MainGui implements ActionListener{
 	        gc.gridy = 0;
 	        gc.insets = new Insets(2, 0, 0, 2);
 	        gc.anchor = GridBagConstraints.NORTHWEST;
-	        gc.weightx = 1;
+	        gc.weightx = 0;
 	        gc.weighty = 0;
 	        gc.gridwidth = 1;
 	        enchantments.add(itemType, gc);
