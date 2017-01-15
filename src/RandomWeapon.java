@@ -4,9 +4,11 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class RandomWeapon {
 	public static void main(String[] args) {
+		randomWeapon();
+	}
+
+	public static void randomWeapon() {
 		int a;
-		String b = "";
-		Scanner input = new Scanner(System.in);
 		int x = 1;
 		int y = 100;
 		int z = number(x, y);
@@ -16,21 +18,34 @@ public class RandomWeapon {
 		} else {
 			a = 1; // 1 is a martial weapon
 		}
-
-		if (a == 1) {
-			b = "You've received a Martial Weapon!";
-		} else if (a == 0) {
-			b = "You've received a Specialized Weapon!";
-		}
-		System.out.println(b);
-		String c = weapon(a);
-		System.out.println("It's a " + c);
+		String type = metal();
+		String weapon = weapon(a);
+		System.out.println(type + " " + weapon);
 
 	}
 
 	public static int number(int min, int max) {
 		int i = ThreadLocalRandom.current().nextInt(min, max + 1);
 		return i;
+	}
+
+	public static String metal() {
+		String b = "";
+		int x = number(1, 100);
+		if (x <= 35) {
+			b = "Bronze";
+		} else if (55 >= x && x > 35) {
+			b = "Iron";
+		} else if (75 >= x && x > 55) {
+			b = "Steel";
+		} else if (90 >= x && x > 75) {
+			b = "Orichalcum";
+		} else if (99 >= x && x > 90) {
+			b = "Mythril";
+		} else if (x == 100) {
+			b = "Adamantite";
+		}
+		return b;
 	}
 
 	public static String weapon(int type) {
