@@ -37,6 +37,7 @@ public class RandomWeapon {
 
 	public static int number(int min, int max) {
 		int i = ThreadLocalRandom.current().nextInt(min, max + 1);
+
 		return i;
 	}
 
