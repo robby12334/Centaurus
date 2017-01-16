@@ -46,13 +46,13 @@ public class RandomWeapon {
 		int x = number(1, 100);
 		if (x <= 35) {
 			b = "Bronze";
-		} else if (55 >= x && x > 35) {
+		} else if (36 <= x && x < 64) {
 			b = "Iron";
-		} else if (75 >= x && x > 55) {
+		} else if (64 <= x && x < 94) {
 			b = "Steel";
-		} else if (90 >= x && x > 75) {
+		} else if (94 <= x && x < 98) {
 			b = "Orichalcum";
-		} else if (99 >= x && x > 90) {
+		} else if (98 == x || x == 99) {
 			b = "Mythril";
 		} else if (x == 100) {
 			b = "Adamantite";

@@ -58,14 +58,23 @@ public class EnchantmentCreator {
 			FinalEnchant = "+" + level + "d4 of Maximum Health";
 		}else if(stat == "Life-Steal"){
 			FinalEnchant = "Up to" + level + "d4 of Life Steal Per Hit";
+		}else if(stat == "Bonus Damage"){
+			int y = RandomWeapon.number(1, 3);
+			if (y==1){
+				FinalEnchant = "+" + level + "d4 of Bonus Damage to Sentients";
+			}else if(y==2){
+				FinalEnchant = "+" + level + "d4 of Bonus Damage to Constructs";
+			}else{
+				FinalEnchant = "+" + level + "d4 of Bonus Damage to Creatures";
+			}
+		}else if(stat == "Bonus Spellslot"){
+			FinalEnchant = "+1 Tier " + level + " Spell Slot";
 		}else{
 			FinalEnchant = "+" + level + " to " + stat;
 		}
 		
 	
 		
-		
-		//System.out.println(FinalEnchant);
 		return FinalEnchant;
 	}
 	
@@ -96,7 +105,7 @@ public class EnchantmentCreator {
 				break;
 			case "Ring":
 				//All Stats = 1, HP = 2, Initiative = 3, All Exploration Prof = 4, Cantrip Damage = 5
-				x = RandomWeapon.number(1, 5);
+				x = RandomWeapon.number(1, 6);
 				if(x == 1){
 					return getStat(type);
 				}else if(x == 2){
@@ -107,11 +116,13 @@ public class EnchantmentCreator {
 					return "Exploration Proficiancy";
 				}else if(x == 5){
 					return "Cantrip Damage";
+				}else if(x==6){
+					return "Bonus Spellslot";
 				}
 				break;
 			case "Amulet":
 				//All Stats = 1, HP = 2, Initiative = 3, Willpower = 4, All Exploration Prof = 5, Cantrip Damage = 6
-				x = RandomWeapon.number(1, 6);
+				x = RandomWeapon.number(1, 7);
 				if(x == 1){
 					return getStat(type);
 				}else if(x == 2){
@@ -124,6 +135,8 @@ public class EnchantmentCreator {
 					return "Exploration Proficiancy";
 				}else if(x == 6){
 					return "Cantrip Damage";
+				}else if(x==7){
+					return "Bonus Spellslot";
 				}
 				break;
 			case "Cloak":
@@ -139,13 +152,15 @@ public class EnchantmentCreator {
 				break;
 			case "Helm":
 				//All Stats = 1, HP = 2, All Explorations = 3
-				x = RandomWeapon.number(1, 3);
+				x = RandomWeapon.number(1, 4);
 				if(x == 1){
 					return getStat(type);
 				}else if(x == 2){
 					return "HP";
 				}else if(x == 3){
 					return "Exploration Proficiancy";
+				}else if(x==4){
+					return "Bonus Damage";
 				}
 				break;
 			case "Boots":
@@ -163,19 +178,21 @@ public class EnchantmentCreator {
 				break;
 			case "Gloves":
 				//All Stats = 1, HP = 2,  All Explorations = 3
-				x = RandomWeapon.number(1, 3);
+				x = RandomWeapon.number(1, 4);
 				if(x == 1){
 					return getStat(type);
 				}else if(x == 2){
 					return "HP";
 				}else if(x == 3){
 					return "Exploration Proficiancy";
+				}else if(x == 4){
+					return "Bonus Spellslot";
 				}
 				break;
 			case "Weapon":
-				//  Str Dex Int = 1,Added Damage Enchant = 2, Initiative = 3, To Hit = 4, Dmg Conversion = 5, lifesteal = 6;
+				//  Str Dex Int = 1,Added Damage Enchant = 2, Initiative = 3, To Hit = 4, Dmg Conversion = 5, lifesteal = 6; Bonus Damage to Type = 78
 				// Electric, Fire, Arcane, Frost
-				x = RandomWeapon.number(1, 6);
+				x = RandomWeapon.number(1, 7);
 				if(x == 1){
 					return getStat(type);
 				}else if(x == 2){
@@ -188,6 +205,8 @@ public class EnchantmentCreator {
 					return "Damage Cerverted to";
 				}else if(x == 6){
 					return "Life-Steal";
+				}else if(x==7){
+					return "Bonus Damage";
 				}
 				break;
 			case "Shield":
@@ -204,14 +223,18 @@ public class EnchantmentCreator {
 				}
 				break;
 			case "Foci":
-				// Int or Wis = 1, To Hit = 2, Added Damage Element = 3, Lifesteal = 4
+				// Int or Wis = 1, To Hit = 2, Added Damage Element = 3, Lifesteal = 4, BOnus Damage
 				x = RandomWeapon.number(1, 20);
-				if(x >= 1 && x <7){
+				if(x >= 1 && x <4){
 					return getStat(type);
-				}else if(x >= 7 && x <14){
+				}else if(x >= 4 && x <8){
 					return "To Hit";
-				}else if(x >= 14 && x <=19){
+				}else if(x >= 8 && x <=12){
 					return "Elemental Damage";
+				}else if(x >12 && x <=16){
+					return "Bonus Damage";
+				}else if(x >16 &&  x< 20){
+					return "Bonus Spellslot";
 				}else if(x == 20){
 					return "Life-Steal";
 				}
