@@ -8,17 +8,63 @@ import javax.swing.border.EmptyBorder;
 
 public class MainGui implements ActionListener{
 	
-	private JLabel wepLabel;    // Declare a Label component 
-	private JTextField wepCount; // Declare a TextField component 
-	private JButton wepButton;   // Declare a Button component
-	private JTextArea displayWeapons; // Multi-line TextArea to taDisplay result
+	// Weapon Creation
+	private JLabel wepLabel;    
+	private JTextField wepCount; 
+	private JButton wepButton;   
+	private JTextArea displayWeapons; 
 	
+	// Stat Creation
 	private JTextArea displayStats;
 	private JButton statButton;
 	
+	//Enchantment Creation
 	private JButton enchantmentButton;
 	private JComboBox itemType;
 	private JTextArea displayEnchantment;
+	
+	// Character Creation
+	private JLabel STRLabel;
+	private JLabel DEXLabel;
+	private JLabel CONLabel;
+	private JLabel INTLabel;
+	private JLabel WISLabel;
+	private JLabel CHALabel;
+	
+	private JLabel STRFinalLabel;
+	private JLabel DEXFinalLabel;
+	private JLabel CONFinalLabel;
+	private JLabel INTFinalLabel;
+	private JLabel WISFinalLabel;
+	private JLabel CHAFinalLabel;
+	private JLabel HPFinalLabel;
+	private JLabel WillpowerFinalLabel;
+	private JLabel ACFinalLabel;
+	private JLabel SpeedFinalLabel;
+	
+	private JTextField STR;
+	private JTextField DEX;
+	private JTextField CON;
+	private JTextField INT;
+	private JTextField WIS;
+	private JTextField CHA;
+	
+	private JComboBox armorType;
+	private JComboBox armorMat;
+	private JComboBox Shield;
+	
+	private JTextArea STRFinal;
+	private JTextArea DEXFinal;
+	private JTextArea CONFinal;
+	private JTextArea INTFinal;
+	private JTextArea WISFinal;
+	private JTextArea CHAFinal;
+	private JTextArea HP;
+	private JTextArea Willpower;
+	private JTextArea AC;
+	private JTextArea Speed;
+	
+	private JButton charCreateButton;
 	
 	public MainGui(){
 	      JFrame frame = new JFrame("DM Helper");
@@ -110,14 +156,134 @@ public class MainGui implements ActionListener{
 	        statRoller.add(statButton, gc);
 	        
 	        displayStats = new JTextArea("Stats Will Appear Here");
+	        gc.gridx = 1;
+	        gc.gridy = 0;
+	        gc.insets = new Insets(2, 0, 0, 2);
+	        gc.anchor = GridBagConstraints.WEST;
+	        gc.weightx =99;
+	        gc.weighty = 0;
+	        gc.gridwidth = 2;
+	        statRoller.add(displayStats, gc);
+	        
+	        STRLabel = new JLabel("STR: ");
 	        gc.gridx = 0;
 	        gc.gridy = 1;
 	        gc.insets = new Insets(2, 0, 0, 2);
-	        gc.anchor = GridBagConstraints.NORTHWEST;
+	        gc.anchor = GridBagConstraints.EAST;
 	        gc.weightx = 0;
-	        gc.weighty = 2;
+	        gc.weighty = 0;
+	        gc.gridwidth = 1;
+	        statRoller.add(STRLabel, gc);
+	        
+	        DEXLabel = new JLabel("DEX: ");
+	        gc.gridx = 0;
+	        gc.gridy = 2;
+	        gc.insets = new Insets(2, 0, 0, 2);
+	        gc.anchor = GridBagConstraints.EAST;
+	        gc.weightx = 0;
+	        gc.weighty = 0;
+	        gc.gridwidth = 1;
+	        statRoller.add(DEXLabel, gc);
+	        
+	        CONLabel = new JLabel("CON: ");
+	        gc.gridx = 0;
+	        gc.gridy = 3;
+	        gc.insets = new Insets(2, 0, 0, 2);
+	        gc.anchor = GridBagConstraints.EAST;
+	        gc.weightx = 0;
+	        gc.weighty = 0;
+	        gc.gridwidth = 1;
+	        statRoller.add(CONLabel, gc);
+	        
+	        INTLabel = new JLabel("INT: ");
+	        gc.gridx = 0;
+	        gc.gridy = 4;
+	        gc.insets = new Insets(2, 0, 0, 2);
+	        gc.anchor = GridBagConstraints.EAST;
+	        gc.weightx = 0;
+	        gc.weighty = 0;
+	        gc.gridwidth = 1;
+	        statRoller.add(INTLabel, gc);
+
+	        WISLabel = new JLabel("WIS: ");
+	        gc.gridx = 0;
+	        gc.gridy = 5;
+	        gc.insets = new Insets(2, 0, 0, 2);
+	        gc.anchor = GridBagConstraints.EAST;
+	        gc.weightx = 0;
+	        gc.weighty = 0;
+	        gc.gridwidth = 1;
+	        statRoller.add(WISLabel, gc);
+
+	        CHALabel = new JLabel("CHA: ");
+	        gc.gridx = 0;
+	        gc.gridy = 6;
+	        gc.insets = new Insets(2, 0, 0, 2);
+	        gc.anchor = GridBagConstraints.NORTHEAST;
+	        gc.weightx = 0;
+	        gc.weighty = 1;
+	        gc.gridwidth = 1;
+	        statRoller.add(CHALabel, gc);
+	        
+	        STR = new JTextField("0",2);
+	        gc.gridx = 1;
+	        gc.gridy = 1;
+	        gc.insets = new Insets(2, 0, 0, 2);
+	        gc.anchor = GridBagConstraints.WEST;
+	        gc.weightx = 1;
+	        gc.weighty = 0;
 	        gc.gridwidth = 2;
-	        statRoller.add(displayStats, gc);
+	        statRoller.add(STR, gc);
+	        
+	        DEX = new JTextField("0",2);
+	        gc.gridx = 1;
+	        gc.gridy = 2;
+	        gc.insets = new Insets(2, 0, 0, 2);
+	        gc.anchor = GridBagConstraints.WEST;
+	        gc.weightx = 1;
+	        gc.weighty = 0;
+	        gc.gridwidth = 2;
+	        statRoller.add(DEX, gc);
+	        
+	        CON = new JTextField("0",2);
+	        gc.gridx = 1;
+	        gc.gridy = 3;
+	        gc.insets = new Insets(2, 0, 0, 2);
+	        gc.anchor = GridBagConstraints.WEST;
+	        gc.weightx = 1;
+	        gc.weighty = 0;
+	        gc.gridwidth = 2;
+	        statRoller.add(CON, gc);
+	        
+	        INT = new JTextField("0",2);
+	        gc.gridx = 1;
+	        gc.gridy = 4;
+	        gc.insets = new Insets(2, 0, 0, 2);
+	        gc.anchor = GridBagConstraints.WEST;
+	        gc.weightx = 1;
+	        gc.weighty = 0;
+	        gc.gridwidth = 2;
+	        statRoller.add(INT, gc);
+	        
+	        WIS = new JTextField("0",2);
+	        gc.gridx = 1;
+	        gc.gridy = 5;
+	        gc.insets = new Insets(2, 0, 0, 2);
+	        gc.anchor = GridBagConstraints.WEST;
+	        gc.weightx = 1;
+	        gc.weighty = 0;
+	        gc.gridwidth = 2;
+	        statRoller.add(WIS, gc);
+	        
+	        CHA = new JTextField("0",2);
+	        gc.gridx = 1;
+	        gc.gridy = 6;
+	        gc.insets = new Insets(2, 0, 0, 2);
+	        gc.anchor = GridBagConstraints.NORTHWEST;
+	        gc.weightx = 1;
+	        gc.weighty = 0;
+	        gc.gridwidth = 2;
+	        statRoller.add(CHA, gc);
 	        
 	        
 	        // Enchantment Creator
