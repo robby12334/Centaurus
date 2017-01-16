@@ -157,7 +157,7 @@ public class MainGui implements ActionListener{
 	        enchantments.add(enchantmentButton, gc);
 	        
 	        String[] items = {" ","Armor", "Ring", "Amulet", "Cloak", "Helm", "Boots", "Gloves", "Weapon", "Shield", "Unique Item", "Legendary Item"};
-	        itemType = new JComboBox(items);
+	        itemType = new JComboBox<String>(items);
 	        gc.gridx = 1;
 	        gc.gridy = 0;
 	        gc.insets = new Insets(2, 0, 0, 2);

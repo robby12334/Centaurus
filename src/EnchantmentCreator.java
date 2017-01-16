@@ -9,7 +9,7 @@ public class EnchantmentCreator {
 			return getUniqueEnchantment(type);
 		}else if(type.equalsIgnoreCase("Legendary Item")){
 			return getLegendaryEnchantment(type);
-		}else if(x > 800 && x <=995){
+		}else if(x > 895 && x <=995){
 			return getUniqueEnchantment(type);
 		}else if(x > 995 && x <=1000){
 			return getLegendaryEnchantment(type);
@@ -55,7 +55,7 @@ public class EnchantmentCreator {
 		}else if(stat == "HP"){
 			FinalEnchant = "+" + level + "d4 of Maximum Health";
 		}else if(stat == "Life-Steal"){
-			FinalEnchant = "+" + level + "d4 of Life Steal Per Hit";
+			FinalEnchant = "Up to" + level + "d4 of Life Steal Per Hit";
 		}else{
 			FinalEnchant = "+" + level + " to " + stat;
 		}
@@ -319,18 +319,30 @@ public class EnchantmentCreator {
 	}
 
 	private static String getResistance(){
-		int x = RandomWeapon.number(1,3);
+		int x = RandomWeapon.number(1,9);
 		if(x == 1){
 			return "Pierce";
 		}else if(x == 2){
 			return "Impact";
 		}else if(x == 3){
 			return "Blade";
+		}else if(x == 4){
+			return "Fire";
+		}else if(x==5){
+			return "Frost";
+		}else if(x == 6){
+			return "Arcane";
+		}else if(x == 7){
+			return "Electric";
+		}else if(x == 8){
+			return "Poison";
+		}else if(x == 9){
+			return "Acid";
 		}
 		return "Fail Resistance";
 	}
 	private static String getDamageType(){
-		int x = RandomWeapon.number(1,4);
+		int x = RandomWeapon.number(1,6);
 		if(x == 1){
 			return "Arcane";
 		}else if(x == 2){
@@ -339,6 +351,10 @@ public class EnchantmentCreator {
 			return "Frost";
 		}else if(x == 4){
 			return "Fire";
+		}else if(x == 5){
+			return "Poison";
+		}else if(x == 6){
+			return "Acid";
 		}
 		return "Fail Damage Type";
 	}
