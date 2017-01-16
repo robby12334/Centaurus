@@ -21,7 +21,7 @@ public class EnchantmentCreator {
 	
 	public static String getStatBoost(String type){
 		//System.out.println("StatBoost");
-		int x = RandomWeapon.number(1, 100);
+		int x = RandomWeapon.number(1, 1000);
 		
 		String stat = getBasicEnchant(type);
 		
@@ -33,13 +33,15 @@ public class EnchantmentCreator {
 		
 		int level = 0; 
 		
-		if(x < 60){
+		if(x < 600){
 			level = 1;
 			
-		}else if(x >=60 && x <90){
+		}else if(x >=600 && x <900){
 			level = 2;
-		}else{
+		}else if (x >= 900 && x < 1000){
 			level = 3;
+		}else{
+			level = 4;
 		}
 		
 		if (stat == "Exploration Proficiancy"){
@@ -93,8 +95,8 @@ public class EnchantmentCreator {
 				}
 				break;
 			case "Ring":
-				//All Stats = 1, HP = 2, Initiative = 3, Willpower = 4, All Exploration Prof = 5
-				x = RandomWeapon.number(1, 4);
+				//All Stats = 1, HP = 2, Initiative = 3, All Exploration Prof = 4, Cantrip Damage = 5
+				x = RandomWeapon.number(1, 5);
 				if(x == 1){
 					return getStat(type);
 				}else if(x == 2){
@@ -103,11 +105,13 @@ public class EnchantmentCreator {
 					return "Initiative";
 				}else if(x == 4){
 					return "Exploration Proficiancy";
+				}else if(x == 5){
+					return "Cantrip Damage";
 				}
 				break;
 			case "Amulet":
-				//All Stats = 1, HP = 2, Initiative = 3, Willpower = 4, All Exploration Prof = 5
-				x = RandomWeapon.number(1, 5);
+				//All Stats = 1, HP = 2, Initiative = 3, Willpower = 4, All Exploration Prof = 5, Cantrip Damage = 6
+				x = RandomWeapon.number(1, 6);
 				if(x == 1){
 					return getStat(type);
 				}else if(x == 2){
@@ -118,6 +122,8 @@ public class EnchantmentCreator {
 					return "Willpower";
 				}else if(x == 5){
 					return "Exploration Proficiancy";
+				}else if(x == 6){
+					return "Cantrip Damage";
 				}
 				break;
 			case "Cloak":
@@ -197,6 +203,20 @@ public class EnchantmentCreator {
 					return "AC";
 				}
 				break;
+			case "Foci":
+				// Int or Wis = 1, To Hit = 2, Added Damage Element = 3, Lifesteal = 4
+				x = RandomWeapon.number(1, 20);
+				if(x >= 1 && x <7){
+					return getStat(type);
+				}else if(x >= 7 && x <14){
+					return "To Hit";
+				}else if(x >= 14 && x <=19){
+					return "Elemental Damage";
+				}else if(x == 20){
+					return "Life-Steal";
+				}
+			
+				break;
 			
 		}
 		
@@ -212,6 +232,8 @@ public class EnchantmentCreator {
 			x = RandomWeapon.number(1,3);
 		}else if(type == "Prof"){
 			x = RandomWeapon.number(2,6);
+		}else if(type == "Foci"){
+			x = RandomWeapon.number(4, 5);
 		}
 		
 		switch(x){
