@@ -17,7 +17,7 @@ public class MainGui implements ActionListener {
 	// Stat Creation
 	private JTextArea displayStats;
 	private JButton statButton;
-
+	private JTextArea charInfo;
 	// Enchantment Creation
 	private JButton enchantmentButton;
 	private JComboBox itemType;
@@ -629,12 +629,15 @@ public class MainGui implements ActionListener {
 		charCreateButton = new JButton("Click for Character Create");
 		gc.gridx = 0;
 		gc.gridy = 14;
-		gc.weightx = 0;
-		gc.weighty = 1;
-		gc.gridwidth = 1;
+		gc.weightx = 1;
+		gc.weighty = 0;
+		gc.gridwidth = 2;
 		gc.gridheight = 1;
 		gc.anchor = GridBagConstraints.WEST;
 		gc.insets = new Insets(2, 0, 0, 2);
+		
+		charInfo = new JTextArea("Char Info Will Be Here");
+
 		
 		charCreateButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -669,10 +672,25 @@ public class MainGui implements ActionListener {
 				Speed.setText(speed + "");
 				ToHit.setText(toHit + "");
 				
+				charInfo.setText("");
+				charInfo.setText("Race Abilities:\n" +RacialStats.Race((String)Races.getSelectedItem()) + "\nSkills:\n" + ArchtypeAbilities.getAbilities((String) Classes.getSelectedItem(), lvl));
 			}
 
 		});
 		statRoller.add(charCreateButton, gc);
+		
+		charInfo.setRows(21);
+		charInfo.setColumns(47);
+		JScrollPane sp2 = new JScrollPane(charInfo);
+		sp2.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+		gc.gridx = 0;
+		gc.gridy = 15;
+		gc.gridwidth = 4;
+		gc.insets = new Insets(2, 0, 0, 2);
+		gc.anchor = GridBagConstraints.NORTHWEST;
+		gc.weightx = 0;
+		gc.weighty = 1;
+		statRoller.add(sp2, gc);
 		
 		// Enchantment Creator
 		JPanel enchantments = new JPanel();
@@ -733,7 +751,7 @@ public class MainGui implements ActionListener {
 		frame.getContentPane().revalidate();
 
 		frame.pack();
-		frame.setSize(600, 600);
+		frame.setSize(600, 1050);
 		frame.setVisible(true);
 	}
 
