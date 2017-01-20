@@ -1,10 +1,10 @@
 
 public class RacialStats {
 	public static void main(String[] args){
-		String[] output = new String[11];
-		output = Race("Aleakii");
+		String[] output = Race("Aleakii");
 		
-		for(int i = 0; i < 11; i++){
+		int length = output.length;
+		for(int i = 0; i < length; i++){
 			System.out.println(output[i]);
 		}
 		
@@ -12,8 +12,9 @@ public class RacialStats {
 	
 	public static String[] Race(String Race){
 		String Selected = Race;
-		System.out.println(Selected);
-		String [] features = new String[20];
+		
+		String [] input = new String[]{"INCORRECT INPUT"};
+		
 		String [] races = new String[]{"", "Aleakii", "Illari", "River Centaur", "Plains Centaur",
 				"Frost Dwarf", "Fir Dwarf", "Diktator", "Servitor", "Brakashi", "Durog", "Untouched", 
 				"Fae-touched", "Goblin", "Orc", "Surfacer", "Larys", "Ghashim", "Viper"};
@@ -68,7 +69,7 @@ public class RacialStats {
 			};
 			return Plains_Centaur;
 		}
-		return null;
+		return input;
 		
 	}
 }
